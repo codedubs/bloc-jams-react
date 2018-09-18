@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 
 
@@ -11,6 +12,17 @@ class Album extends Component {
     );
   }
 }
+=======
+import React from 'react';
+
+
+
+const Album = () => (
+  <section className="album">
+    Album will go here
+  </section>
+);
+>>>>>>> assignment-4-routing
 
 
 export default Album;
