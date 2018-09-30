@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import albumData from './../data/albums';
 
 
+
+
 class Album extends Component {
   constructor(props) {
     super(props);
@@ -15,13 +17,22 @@ class Album extends Component {
     this.state = {
       album: album,
       currentSong: album.songs[0],
-      isPlaying: false
+      isPlaying: false,
+      hover: true,
+      showButtons: true
+
+
     };
 
     this.audioElement = document.createElement('audio');
     this.audioElement.src = album.songs[0].audioSrc;
 
+    this.onMouseEnter = this.onMouseEnter.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
+
+    this.handleToggleClick = this.handleToggleClick.bind(this);
   }
+
 
 
   play() {
@@ -43,13 +54,40 @@ class Album extends Component {
     const isSameSong = this.state.currentSong === song;
     if (this.state.isPlaying && isSameSong) {
       this.pause();
+      this.setState(state => ({
+        showButtons: !this.state.showButtons
+      }));
+    } else if (!isSameSong) {
+      this.setSong(song);
+
     } else {
-      if (!isSameSong) { this.setSong(song); }
       this.play();
+      this.setState(state => ({
+        showButtons: !this.state.showButtons
+      }));
     }
   }
 
+  onMouseEnter() {
+    this.setState({ hover: true });
+  }
+
+  onMouseLeave() {
+    this.setState({hover: false });
+  }
+
+
+  handleToggleClick() {
+
+
+  }
+
+
   render() {
+
+    const play = <span className="ion-md-play"></span>
+    const pause = <span className="ion-md-pause"></span>
+
     return(
       <section className="album">
         <section id="album-info">
@@ -69,14 +107,21 @@ class Album extends Component {
           <tbody>
             {
               this.state.album.songs.map( (song, index) =>
-                <tr className="song" key={ index } onClick={ () => this.handleSongClick(song) }>
-                  <td> { index + 1 } </td>
-                  <td> { this.state.album.songs[index].title } </td>
-                  <td> { this.state.album.songs[index].duration } </td>
+
+                <tr className="song" key={index} onMouseEnter={ () => this.onMouseEnter() } onMouseLeave={ () => this.onMouseLeave() } onClick={ () => this.handleSongClick(song) }>
+                  <td>
+                    <span className="index"> { index+1 } </span>
+
+                    <button className="buttons" >
+                      {this.state.showButtons ? play : pause}
+                    </button>
+
+                    <span className="song-title"> { this.state.album.songs[index].title } </span>
+                    <span className="song-duration"> { this.state.album.songs[index].duration } </span>
+                  </td>
                 </tr>
               )
             }
-
           </tbody>
         </table>
       </section>
