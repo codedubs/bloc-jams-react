@@ -19,6 +19,8 @@ class Album extends Component {
       album: album,
       currentSong: album.songs[0],
       isPlaying: false,
+      currentTime: 0,
+      duration: album.songs[0].duration,
       hover: true,
       showButtons: true
 
@@ -97,6 +99,35 @@ class Album extends Component {
   }
 
 
+  handleTimeChange(e) {
+    const newTime = this.audioElement.duration * e.target.value;
+    this.audioElement.currentTime = newTime;
+    this.setState({ currentTime: newTime });
+  }
+
+
+  componentDidMount() {
+    this.eventListeners = {
+      timeupdate: (e) => {
+        this.setState({ currentTime: this.state.currentTime });
+      },
+
+      duration: (e) => {
+        this.setState({ duration: this.state.duration });
+      }
+    };
+
+    this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
+    this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
+  }
+
+  componentWillUnmount() {
+    this.audioElement.src = null;
+    this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
+    this.audioElement.removeEventListener('durationchange', this.eventListeners.durationchange);
+  }
+
+
   render() {
 
     const play = <span className="ion-md-play"></span>
@@ -121,7 +152,6 @@ class Album extends Component {
           <tbody>
             {
               this.state.album.songs.map( (song, index) =>
-
                 <tr className="song" key={index} onMouseEnter={ () => this.onMouseEnter() } onMouseLeave={ () => this.onMouseLeave() } onClick={ () => this.handleSongClick(song) }>
                   <td>
                     <span className="index"> { index+1 } </span>
@@ -139,12 +169,15 @@ class Album extends Component {
           </tbody>
         </table>
         <PlayerBar
-
           isPlaying={ this.state.isPlaying }
           currentSong={ this.state.currentSong }
+          currentTime={ this.audioElement.currentTime }
+          duration={ this.audioElement.duration }
           handleSongClick={ () => this.handleSongClick(this.state.currentSong) }
           handlePrevClick={ () => this.handlePrevClick() }
           handleNextClick={ () => this.handleNextClick() }
+          handleTimeChange={ (e) => this.handleTimeChange(e) }
+
 
         />
 
