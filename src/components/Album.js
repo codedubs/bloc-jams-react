@@ -186,7 +186,7 @@ class Album extends Component {
                     </button>
 
                     <span className="song-title"> { this.state.album.songs[index].title } </span>
-                    <span className="song-duration"> { this.state.album.songs[index].duration } </span>
+                    <span className="song-duration"> { this.formatTime(this.state.album.songs[index].duration) } </span>
                   </td>
                 </tr>
               )
