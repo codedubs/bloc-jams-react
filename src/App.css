@@ -1,37 +1,294 @@
-.App {
-  text-align: center;
+
+.album {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 200px;
+  padding-left: 150px;
+  padding-right: 50px;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  background-image: url('https://wallpapercave.com/wp/GoYhcga.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 1050px;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+
+.buttons .ion-md-play {
+  cursor: pointer;
+  font-size: 15px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.buttons .ion-md-pause {
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#column-1 {
+  position: relative;
+  width: 50%;
+  padding-right: 100px;
+  float: left;
+  height: 100%;
+}
+
+#column-2 {
+  position: relative;
+  padding-top: 20px;
+}
+
+#album-info {
+  postion: absolute;
+  width: 80%;
+}
+
+#album-cover-art {
+ width: 100%;
+ padding-bottom: 30px;
+ opacity: 0.8;
+}
+
+.album-details {
+  padding-left: 18px;
+  color: white;
+  width: 100%;
+}
+
+.artist {
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: pink;
+  font-size: 36px;
+}
+
+#album-title {
+  font-size: 16px;
+  letter-spacing: .14em;
+  color: #efefef;
+}
+
+.song-title:hover {
+  cursor: pointer;
+  color: pink;
+}
+
+#release-info {
+  letter-spacing: .13em;
+  color: #efefef;
+}
+
+#song-list {
+  width: 50%;
+}
+
+tbody {
+  border-left: 2.5px solid #3f4656;
+  opacity: .8;
+}
+
+tbody tr td {
+  color: white;
+  padding: 15px 0px 15px 50px;
+}
+
+
+.song-title {
+  padding-right: 10%;
+  font-size: 17px;
+  letter-spacing: .16em;
+}
+
+.song-duration {
+  letter-spacing: .04em;
+}
+
+
+.carocontainer {
+  max-width: 600px;
+  max-height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-item img{
+  opacity: .7;
+}
+
+.carousel-caption {
+  margin-bottom: 50px;
+}
+
+.carousel-item .link:hover {
+  color: pink;
+  text-decoration: none;
+}
+
+
+.musicbar {
+  width: 100%;
+}
+
+.player-bar {
+  width: 51%;
+  float: left;
+  text-align: right;
+  color: white;
+
+}
+
+.player-bar ul li{
+  list-style: none;
+}
+
+.sidevolume {
+  padding-right: 70px;
+  padding-top: 43px;
+  text-align: right;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+.sidevolume input {
+  width: 10%;
+  cursor: pointer;
 }
 
-.App-intro {
-  font-size: large;
+.slider {
+  margin-right: -23%;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.slider input {
+  width: 50%;
+  cursor: pointer;
 }
 
 
+#previous {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#previous:hover {
+  color: pink;
+}
+#next {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#next:hover {
+  color: pink;
+}
+
+.ion-md-play {
+  font-size: 45px;
+  position: relative;
+  top: 5px;
+  cursor: pointer;
+}
+
+.ion-md-play:hover {
+  color: pink;
+}
+
+.ion-md-pause {
+  font-size: 45px;
+  position: relative;
+  top: 5px;
+  left: -1px;
+  cursor: pointer;
+}
+
+.ion-md-pause:hover {
+  color: pink;
+}
+
+.ion-md-volume-high {
+  font-size: 20px;
+}
+
+.ion-md-add-circle-outline {
+  text-align: center;
+  width: 20%;
+  position: absolute;
+  top: 50px;
+  font-size: 18px;
+  letter-spacing: .12em;
+}
+
+.jumbotron {
+  background-image: url('https://wallpapercave.com/wp/wp3144325.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  letter-spacing: .7px;
+  min-height: 1050px;
+}
+
+.jumbotron .container {
+  margin-left: 10%;
+}
+
+
+.library {
+  padding-top: 10%;
+  min-height: 1050px;
+  background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ8NDQ0NFREWFhURFRUYHSggGBoxGxUVITEhJSkrLi46Fx8zODMtNyg5LjcBCgoKDQ0NDg0NDisZFRktKysrLS0rKystKysrLS0rKysrLSsrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBHAMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAABAAIDBAf/xAAcEAEBAQEBAQADAAAAAAAAAAAAARECElEDcdH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAMAwEAAhEDEQA/APiKSVEkgRSVFiwkGScWAkUCKOKA4UIMWNYsCs4saxYFZwNYsBkNYsFZDQQZRAANAACkUJIECgKSBJEEUVRGBoEVDFRYvLUMCsLHTF4VKxhxrFgM4cOHAZwY3gwGcWNYsBjA3jIMhoIrIaoqKyiAAIBAhFSSApIEYkqEwNAo1AYqGGRRqCKRqCNRUUakUhkVFi8RqQyKOd4ox2xXnSFccGOt/H8ZvOIMYMbwWCsYK3jNBnGW6KisUNUVFZoIqKAQASSKEkBSQEgxUJghAxqCNRUMajMaioY1FGoqKRqQRuRWVIZDDIqDDhkOAzixrFgOV4jF4rvYzYRa89gsd7GOuEWuIrd5rNZVis1us1GsZFNFFANCDKIFCIQK0IDp0GA1KZWYVRuNRzjUVHSNRznVbnSo3GozK3FZajUZjcVDGpBGoqI4YVRnFjWAGbGa3WagxWa3WaKxWLG6zWWnO8sXl1rNRXGiulZsRpzoasFiKyDQCBCKkkBMBAwiFUMajMaihjUZjUVlqNc1mNRUdOe3TnqOMaio7xuPPK6c91WY6xqOfPc/TaoRSKqM1mtVmorNZrVZqKzWK3WKjTNZrVZrKsVmtVmoorNarNFFFhCKBhABJIpUSgNQhKjUMEKjUajDUE1uGMxqKy1GozDFRuNRiUqjcMrMSjrPyff41OpXDUJHaiuU6sPv6ENZp1miis01msqzWa1Wais1mtVmoorNNFRQCBQCEAkhSkgJBVDGmTAajUYjSo1GoxGoqNwxiNRUbhY06qN6dY06I1o0atA6zq0WirV7DNqK36grFHoI1WavQqKKKqKiiilmooBAIJIoRQJYiCw4iqIxEEYjioo1BiBqNRgyqjZ1g6qNadY06DWrWdWgdGjQB0JlA1moCoahUVelrIRWqBq0EEgCSRUkgRCAwgqhhBgFpkqjWmVkwRpYNOqJadQLVowA1q1nVoHVrOrQOjRoRYRUAQQRUEAQSBLUEUoLQKSBJIEQhGiyVGiyga06yVRo6zp0GtOsadEa06xq1Q2CxatQGjTRYKtAQqQSCCAIEAkgipJAkgDSSBJIEigRSVEQgaIQExJURSBIoAigCSBnplJFQSBBIAkkUVJAkkASQP/Z');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+.link {
+  color: #FFF;
+  padding: 30px;
+  letter-spacing: .2em;
+}
+
+
+#navbarText li a{
+  color: white;
+  letter-spacing: .15em;
+  font-weight: bold;
+  padding-right: 30px;
+}
+
+#navbarText li a:hover {
+  color: pink;
+}
+
+.navbar {
+  color: white;
+  opacity: .8;
+  padding-left: 40px;
+}
+
+.navbar-brand {
+   padding: 0 45px;
+   height: 80px;
+   line-height: 80px;
+   font-size: 27px;
+   padding-left: 20px;
+}
+
+
+.navbar .navbar-text {
+  color: white;
+  margin-right: 80px;
+}
+
+.navbar-text {
+  border-left: 2.5px solid #FFF;
+  padding-left: 30px;
+  letter-spacing: 0.13em;
+}
 
 
 #song-list tbody td:hover .buttons {
   display: inline-block;
+  cursor: pointer;
 }
 
 #song-list tbody td .buttons {
@@ -40,4 +297,5 @@
 
 #song-list tbody td:hover .index {
   display: none;
+
 }
