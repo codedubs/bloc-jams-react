@@ -74,12 +74,9 @@ class Album extends Component {
       }));
     } else if (!isSameSong) {
       this.setSong(song);
-<<<<<<< HEAD
-=======
       this.setState(state => ({
         showButtons: this.state.showButtons
       }));
->>>>>>> checkpoint-15-styling-v2
     } else {
       this.play();
       this.setState(state => ({
@@ -88,8 +85,7 @@ class Album extends Component {
     }
   }
 
-<<<<<<< HEAD
-=======
+
   onMouseEnter() {
     this.setState({ hover: true });
   }
@@ -97,7 +93,7 @@ class Album extends Component {
   onMouseLeave() {
     this.setState({ hover: false });
   }
->>>>>>> checkpoint-15-styling-v2
+
 
   handlePrevClick() {
     const currentIndex  = this.state.album.songs.findIndex(song => this.state.currentSong === song);
@@ -166,10 +162,7 @@ class Album extends Component {
       duration: (e) => {
         this.setState({ duration: this.state.duration });
       },
-<<<<<<< HEAD
 
-=======
->>>>>>> checkpoint-15-styling-v2
       volumechange: (e) => {
         this.setState({ volume: this.state.volume });
       }
@@ -178,10 +171,6 @@ class Album extends Component {
     this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
     this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
     this.audioElement.addEventListener('volumechange', this.eventListeners.volumechange);
-<<<<<<< HEAD
-
-=======
->>>>>>> checkpoint-15-styling-v2
   }
 
   componentWillUnmount() {
@@ -193,10 +182,6 @@ class Album extends Component {
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> checkpoint-15-styling-v2
   render() {
 
     const play = <span className="ion-md-play"></span>
@@ -216,48 +201,6 @@ class Album extends Component {
               </div>
             </section>
           </div>
-<<<<<<< HEAD
-        </section>
-        <table id="song-list">
-          <colgroup>
-            <col id="song-number-column" />
-            <col id="song-title-column" />
-            <col id="song-duration-column" />
-          </colgroup>
-          <tbody>
-            {
-              this.state.album.songs.map( (song, index) =>
-                <tr className="song" key={index} onMouseEnter={ () => this.onMouseEnter() } onMouseLeave={ () => this.onMouseLeave() } onClick={ () => this.handleSongClick(song) }>
-                  <td>
-                    <span className="index"> { index+1 } </span>
-
-                    <button className="buttons">
-                      { this.state.showButtons ? play : pause }
-                    </button>
-
-                    <span className="song-title"> { this.state.album.songs[index].title } </span>
-                    <span className="song-duration"> { this.formatTime(this.state.album.songs[index].duration) } </span>
-                  </td>
-                </tr>
-              )
-            }
-          </tbody>
-        </table>
-        <PlayerBar
-          isPlaying={ this.state.isPlaying }
-          currentSong={ this.state.currentSong }
-          currentTime={ this.audioElement.currentTime }
-          duration={ this.audioElement.duration }
-          volume={ this.audioElement.volume }
-
-          handleSongClick={ () => this.handleSongClick(this.state.currentSong) }
-          handlePrevClick={ () => this.handlePrevClick() }
-          handleNextClick={ () => this.handleNextClick() }
-          handleTimeChange={ (e) => this.handleTimeChange(e) }
-          handleVolumeChange={ (e) => this.handleVolumeChange(e) }
-          formatTime={ (duration) => this.formatTime(duration) }
-        />
-=======
 
           <div id="column-2">
             <table id="song-list">
@@ -301,7 +244,6 @@ class Album extends Component {
 
                 />
           </nav>
->>>>>>> checkpoint-15-styling-v2
       </section>
     );
   }
