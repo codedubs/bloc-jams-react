@@ -32,10 +32,14 @@ class PlayerBar extends Component {
           <div className="ion-md-volume-high"></div>
         </section>
       </section>
-
+      <section className="sidevolume">
+        <a className="ion-md-volume-high"></a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="range" className="seek-bar" value={ this.props.volume } max="1" min="0" step="0.01" onChange={ this.props.handleVolumeChange } />
+      </section>
+    </section>
     );
   }
-
 }
 
 
